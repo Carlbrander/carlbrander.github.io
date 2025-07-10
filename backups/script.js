@@ -176,6 +176,23 @@ if (currentTheme === "light") {
   html.classList.remove("light-theme");
 }
 
+// map theme switching function
+function updateMapTheme() {
+  const mapIframe = document.getElementById("map-iframe");
+  if (mapIframe) {
+    const isLightTheme = html.classList.contains("light-theme");
+    const baseUrl = "https://www.openstreetmap.org/export/embed.html?bbox=8.5,47.35,8.6,47.4&marker=47.3769,8.5417";
+    
+    if (isLightTheme) {
+      // Use CartoDB Positron (light theme) for light mode
+      mapIframe.src = baseUrl + "&layer=cartodb_positron";
+    } else {
+      // Use default mapnik (dark theme) for dark mode
+      mapIframe.src = baseUrl + "&layer=mapnik";
+    }
+  }
+}
+
 // theme toggle functionality
 themeToggle.addEventListener("click", function () {
   html.classList.toggle("light-theme");
@@ -183,4 +200,63 @@ themeToggle.addEventListener("click", function () {
   // save theme preference to localStorage
   const isLightTheme = html.classList.contains("light-theme");
   localStorage.setItem("theme", isLightTheme ? "light" : "dark");
+  
+  // update map theme
+  updateMapTheme();
+});
+
+// initialize map theme on page load
+document.addEventListener("DOMContentLoaded", function() {
+  updateMapTheme();
+});
+
+//-----------------------------------*\
+//  #PROJECT MODAL
+//\*-----------------------------------*/
+
+// project modal variables
+const projectModal = document.querySelector("[data-project-modal]");
+const projectModalOverlay = document.querySelector("[data-project-modal-overlay]");
+const projectModalClose = document.querySelector("[data-project-modal-close]");
+const projectModalContent = document.querySelector("[data-project-modal-content]");
+const projectLinks = document.querySelectorAll(".project-link[data-project]");
+
+// project modal toggle function
+const projectModalFunc = function () {
+  projectModal.classList.toggle("active");
+  document.body.style.overflow = projectModal.classList.contains("active") ? "hidden" : "";
+}
+
+// load project content function
+const loadProjectContent = async function (projectFile) {
+  try {
+    const response = await fetch(projectFile);
+    const content = await response.text();
+    projectModalContent.innerHTML = content;
+    projectModalFunc();
+  } catch (error) {
+    console.error("Error loading project:", error);
+    projectModalContent.innerHTML = "<p>Error loading project content. This will work when deployed to GitHub Pages.</p>";
+    projectModalFunc();
+  }
+}
+
+// add click event to all project links
+for (let i = 0; i < projectLinks.length; i++) {
+  projectLinks[i].addEventListener("click", function (e) {
+    e.preventDefault();
+    const projectFile = this.getAttribute("data-project");
+    loadProjectContent(projectFile);
+  });
+}
+
+// add click event to modal close button and overlay
+projectModalClose.addEventListener("click", projectModalFunc);
+projectModalOverlay.addEventListener("click", projectModalFunc);
+
+// close modal with escape key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && projectModal.classList.contains("active")) {
+    projectModalFunc();
+  }
 });

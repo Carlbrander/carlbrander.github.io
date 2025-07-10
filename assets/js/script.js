@@ -1,20 +1,16 @@
 'use strict';
 
-
-
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
-
 
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
+if (sidebarBtn) {
+  sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+}
 
 // testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
@@ -29,31 +25,32 @@ const modalText = document.querySelector("[data-modal-text]");
 
 // modal toggle function
 const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
+  if (modalContainer && overlay) {
+    modalContainer.classList.toggle("active");
+    overlay.classList.toggle("active");
+  }
 }
 
 // add click event to all modal items
 for (let i = 0; i < testimonialsItem.length; i++) {
-
   testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
+    if (modalImg && modalTitle && modalText) {
+      modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+      modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+      modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+      modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+      testimonialsModalFunc();
+    }
   });
-
 }
 
 // add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
-
-
+if (modalCloseBtn) {
+  modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+}
+if (overlay) {
+  overlay.addEventListener("click", testimonialsModalFunc);
+}
 
 // custom select variables
 const select = document.querySelector("[data-select]");
@@ -61,17 +58,17 @@ const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
+if (select) {
+  select.addEventListener("click", function () { elementToggleFunc(this); });
+}
 
 // add event in all select items
 for (let i = 0; i < selectItems.length; i++) {
   selectItems[i].addEventListener("click", function () {
-
     let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
+    if (selectValue) selectValue.innerText = this.innerText;
+    if (select) elementToggleFunc(select);
     filterFunc(selectedValue);
-
   });
 }
 
@@ -79,9 +76,7 @@ for (let i = 0; i < selectItems.length; i++) {
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = function (selectedValue) {
-
   for (let i = 0; i < filterItems.length; i++) {
-
     if (selectedValue === "all") {
       filterItems[i].classList.add("active");
     } else if (selectedValue === filterItems[i].dataset.category) {
@@ -89,31 +84,22 @@ const filterFunc = function (selectedValue) {
     } else {
       filterItems[i].classList.remove("active");
     }
-
   }
-
 }
 
 // add event in all filter button items for large screen
 let lastClickedBtn = filterBtn[0];
 
 for (let i = 0; i < filterBtn.length; i++) {
-
   filterBtn[i].addEventListener("click", function () {
-
     let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
+    if (selectValue) selectValue.innerText = this.innerText;
     filterFunc(selectedValue);
-
     lastClickedBtn.classList.remove("active");
     this.classList.add("active");
     lastClickedBtn = this;
-
   });
-
 }
-
-
 
 // contact form variables
 const form = document.querySelector("[data-form]");
@@ -123,18 +109,16 @@ const formBtn = document.querySelector("[data-form-btn]");
 // add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
-
     // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
+    if (form && formBtn) {
+      if (form.checkValidity()) {
+        formBtn.removeAttribute("disabled");
+      } else {
+        formBtn.setAttribute("disabled", "");
+      }
     }
-
   });
 }
-
-
 
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
@@ -143,7 +127,6 @@ const pages = document.querySelectorAll("[data-page]");
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-
     for (let i = 0; i < pages.length; i++) {
       if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
         pages[i].classList.add("active");
@@ -154,11 +137,8 @@ for (let i = 0; i < navigationLinks.length; i++) {
         navigationLinks[i].classList.remove("active");
       }
     }
-
   });
 }
-
-// Comment out or disable any code that references the Blog section or its navigation
 
 //-----------------------------------*\
 //  #THEME TOGGLE
@@ -166,6 +146,7 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
 // theme toggle variables
 const themeToggle = document.getElementById("theme-toggle");
+const themeToggleMobile = document.getElementById("theme-toggle-mobile");
 const html = document.documentElement;
 
 // check for saved theme preference or default to light theme
@@ -176,58 +157,52 @@ if (currentTheme === "light") {
   html.classList.remove("light-theme");
 }
 
-// map theme switching function
-function updateMapTheme() {
-  const mapIframe = document.getElementById("map-iframe");
-  if (mapIframe) {
-    const isLightTheme = html.classList.contains("light-theme");
-    const baseUrl = "https://www.openstreetmap.org/export/embed.html?bbox=8.5,47.35,8.6,47.4&marker=47.3769,8.5417";
-    
-    if (isLightTheme) {
-      // Use CartoDB Positron (light theme) for light mode
-      mapIframe.src = baseUrl + "&layer=cartodb_positron";
-    } else {
-      // Use default mapnik (dark theme) for dark mode
-      mapIframe.src = baseUrl + "&layer=mapnik";
-    }
-  }
-}
-
 // theme toggle functionality
-themeToggle.addEventListener("click", function () {
+function toggleTheme() {
   html.classList.toggle("light-theme");
   
   // save theme preference to localStorage
   const isLightTheme = html.classList.contains("light-theme");
   localStorage.setItem("theme", isLightTheme ? "light" : "dark");
-  
-  // update map theme
-  updateMapTheme();
-});
+}
 
-// initialize map theme on page load
-document.addEventListener("DOMContentLoaded", function() {
-  updateMapTheme();
-});
+// Make toggleTheme available globally
+window.toggleTheme = toggleTheme;
+
+// Function to set up theme toggle event listeners
+function setupThemeToggles() {
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+  
+  // Add event listener to desktop toggle button
+  if (themeToggle) {
+    themeToggle.addEventListener("click", toggleTheme);
+  }
+  
+  // Add event listener to mobile toggle button
+  if (themeToggleMobile) {
+    themeToggleMobile.addEventListener("click", toggleTheme);
+  }
+}
 
 //-----------------------------------*\
 //  #PROJECT MODAL
 //\*-----------------------------------*/
 
-// project modal variables
+// Project modal variables
 const projectModal = document.querySelector("[data-project-modal]");
 const projectModalOverlay = document.querySelector("[data-project-modal-overlay]");
 const projectModalClose = document.querySelector("[data-project-modal-close]");
 const projectModalContent = document.querySelector("[data-project-modal-content]");
 const projectLinks = document.querySelectorAll(".project-link[data-project]");
 
-// project modal toggle function
+// Project modal toggle function
 const projectModalFunc = function () {
   projectModal.classList.toggle("active");
   document.body.style.overflow = projectModal.classList.contains("active") ? "hidden" : "";
 }
 
-// load project content function
+// Load project content function
 const loadProjectContent = async function (projectFile) {
   try {
     const response = await fetch(projectFile);
@@ -260,3 +235,11 @@ document.addEventListener("keydown", function (e) {
     projectModalFunc();
   }
 });
+
+// Set up toggles when DOM is ready
+document.addEventListener("DOMContentLoaded", function() {
+  setupThemeToggles();
+});
+
+// Also try setting up immediately in case DOM is already ready
+setupThemeToggles(); 
