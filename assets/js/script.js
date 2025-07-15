@@ -243,3 +243,48 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Also try setting up immediately in case DOM is already ready
 setupThemeToggles(); 
+
+function setFavicon(theme) {
+  // Remove existing favicons
+  document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]').forEach(el => el.remove());
+
+  // Define paths for each theme
+  const basePath = './assets/images/favicons/';
+  const themePath = theme === 'dark' ? 'dark-theme' : 'light-theme';
+
+  // Add PNG favicons
+  const sizes = ['16x16', '32x32', '180x180'];
+  sizes.forEach(size => {
+    const rel = size === '180x180' ? 'apple-touch-icon' : 'icon';
+    const type = size === '180x180' ? null : 'image/png';
+    const link = document.createElement('link');
+    link.rel = rel;
+    if (type) link.type = type;
+    link.sizes = size;
+    link.href = `${basePath}${themePath}/favicon-${size}.png`;
+    document.head.appendChild(link);
+  });
+
+  // Optionally, add manifest (if you have separate ones)
+  // const manifest = document.createElement('link');
+  // manifest.rel = 'manifest';
+  // manifest.href = `${basePath}${themePath}/site.webmanifest`;
+  // document.head.appendChild(manifest);
+}
+
+// Detect initial theme
+const getCurrentTheme = () => {
+  if (document.documentElement.classList.contains('light-theme')) return 'light';
+  if (document.documentElement.classList.contains('dark-theme')) return 'dark';
+  // fallback to system
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
+// Set favicon on page load
+setFavicon(getCurrentTheme());
+
+// Listen for theme changes (update this if your theme toggle logic is different)
+const observer = new MutationObserver(() => {
+  setFavicon(getCurrentTheme());
+});
+observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] }); 

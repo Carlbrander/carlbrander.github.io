@@ -5,17 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vCard - Personal Portfolio</title>
-
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <title>Carl Brander - Portfolio</title>
 
   <!--
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css?v=1.1">
 
   <!--
     - google font link
@@ -28,11 +23,20 @@
     - theme initialization script
   -->
   <script>
-    // Apply light theme by default immediately when page loads
     (function() {
+      const html = document.documentElement;
       const savedTheme = localStorage.getItem("theme");
-      if (!savedTheme || savedTheme === "light") {
-        document.documentElement.classList.add("light-theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        html.classList.toggle("light-theme", savedTheme === "light");
+        html.classList.toggle("dark-theme", savedTheme === "dark");
+      } else {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          html.classList.add("dark-theme");
+          html.classList.remove("light-theme");
+        } else {
+          html.classList.add("light-theme");
+          html.classList.remove("dark-theme");
+        }
       }
     })();
   </script>
@@ -237,7 +241,7 @@
         <section class="about-text">
           <p>
             I'm a recent Robotics Master student graduate from ETH Zurich. <br>
-            Throughout my studies I interned at Tesla, Microsoft and McKinsey & Company. 
+            Throughout my studies I spent time at Tesla, Microsoft and McKinsey & Company. 
             I also led a 38-person engineering student project for a full year. 
             I'm passionate about deep tech, especially AI, computer vision and robotics. 
             While I'm a tech enthusiast, I also enjoy managing, leading and coordinating

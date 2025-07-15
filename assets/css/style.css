@@ -911,7 +911,7 @@ main {
   margin-bottom: 15px;
   max-height: 200px;
   overflow: hidden;
-  transition: var(--transition-2);
+  /*transition: var(--transition-2);*/
 }
 
 .sidebar.active { max-height: 500px; }
@@ -922,6 +922,7 @@ main {
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
+  /*transition: background var(--transition-2), color var(--transition-2), border-color var(--transition-2);*/
 }
 
 .avatar-box {
@@ -1143,7 +1144,7 @@ main {
     object-fit: cover;
     object-position: center;
     border-radius: 12px;
-    transform: scale(1.15);
+    transform: scale(1.1);
   }
 
   /* Content on the right */
@@ -2566,7 +2567,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   .service-content-box { text-align: left; }
   
   .highlight-img {
-    max-width: 320px;
+    max-width: 420px;
     margin: 0 auto 15px;
   }
 
@@ -3124,8 +3125,9 @@ html:not(.light-theme) body {
 }
 
 .light-theme .icon-box {
-  background: var(--light-border-gradient-onyx);
+  background: hsl(0, 0%, 88%) !important;
   color: var(--light-orange-yellow-crayola);
+  border: 1px solid #000 !important;
 }
 
 .light-theme .content-card {
@@ -3522,3 +3524,38 @@ html:not(.light-theme) body {
     left: 45px;
   }
 }
+
+
+
+/* Remove all transitions for instant theme switching */
+body,
+article,
+.main-content,
+.sidebar,
+.sidebar-info,
+.separator,
+.icon-box,
+.content-card,
+.service-item,
+.project-modal-container,
+.project-modal-close-btn,
+.project-detail .project-header .project-link,
+.project-img::before,
+.project-item-icon-box,
+.project-img img,
+.blog-banner-box img,
+.blog-item-title,
+.skill-tag,
+.theme-toggle-switch,
+.toggle-slider,
+.info_more-btn,
+.social-item .social-link,
+.clients-item img,
+.resume-download-btn,
+input,
+textarea,
+.form-btn,
+.select-list {
+  transition: none !important;
+}
+
