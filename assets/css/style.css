@@ -595,6 +595,8 @@ article header {
     max-width: 331px;
     margin: 0;
     align-self: start;
+    /* Add margin-top to align image with start of text, not title */
+    margin-top: 40px;
   }
   
   .project-detail .project-image img {
@@ -1460,15 +1462,13 @@ main {
   @media (max-width: 579px) {
     .light-theme .navbar .navbar-link.active {
       background: var(--orange-yellow-crayola) !important;
-      color: var(--smoky-black) !important;
-      border-color: var(--orange-yellow-crayola) !important;
+      color: var(--eerie-black-2) !important;
     }
 
     .light-theme .navbar .navbar-link:hover,
     .light-theme .navbar .navbar-link:focus {
-      background: var(--onyx) !important;
-      border-color: var(--orange-yellow-crayola) !important;
-      color: var(--light-gray) !important;
+      background: var(--orange-yellow-crayola) !important;
+      color: var(--eerie-black-2) !important;
     }
 
       .light-theme .navbar .navbar-link {
@@ -1478,6 +1478,9 @@ main {
   /* Ensure social icons are same size in both themes on mobile */
   .light-theme .social-item .social-link {
     font-size: 18px !important;
+  }
+  .clients-item img[alt="CVG"] {
+    height: 60px !important;
   }
 }
 }
@@ -3559,5 +3562,39 @@ textarea,
 .form-btn,
 .select-list {
   transition: none !important;
+}
+
+@media (max-width: 579px) {
+  /* Remove all transitions for instant theme switching on mobile */
+  body,
+  article,
+  .main-content,
+  .sidebar,
+  .sidebar-info,
+  .separator,
+  .icon-box,
+  .content-card,
+  .service-item,
+  .project-modal-container,
+  .project-modal-close-btn,
+  .project-detail .project-header .project-link,
+  .project-img::before,
+  .project-item-icon-box,
+  .project-img img,
+  .blog-banner-box img,
+  .blog-item-title,
+  .skill-tag,
+  .theme-toggle-switch,
+  .toggle-slider,
+  .info_more-btn,
+  .social-item .social-link,
+  .clients-item img,
+  .resume-download-btn,
+  input,
+  textarea,
+  .form-btn,
+  .select-list {
+    transition: none !important;
+  }
 }
 
