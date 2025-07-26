@@ -960,7 +960,7 @@
                   <img src="./assets/images/thumbnails/CVPRW25_Paper.jpg" alt="CVPRW Research Project" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Egocentric Event Vision OCR at CVPRW 2025</h3>
+                <h3 class="project-title">Egocentric Event Vision OCR at CVPRW25</h3>
 
                 <p class="project-category">Research</p>
 
@@ -1038,6 +1038,20 @@
 
                 <p class="project-category">Personal</p>
 
+              </a>
+            </li>
+
+            <!-- Bachelor Thesis Research Project -->
+            <li class="project-item active" data-filter-item data-category="research">
+              <a href="#" class="project-link" data-project="assets/project pages/Bachelor_Thesis.html">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/thumbnails/Bachelor_Thesis.jpg" alt="Bachelor Thesis Project" loading="lazy">
+                </figure>
+                <h3 class="project-title">Deep Sensor Fusion for Nano-UAVs</h3>
+                <p class="project-category">Research</p>
               </a>
             </li>
 
@@ -1414,6 +1428,13 @@
     document.getElementById('nav-link-contact')?.addEventListener('click', function() {
       if (window.goatcounter) {
         goatcounter.count({ path: '/page/contact' });
+      }
+    });
+
+    // GoatCounter event tracking for Bachelor Thesis project modal open
+    document.querySelector('[data-project="assets/project pages/Bachelor_Thesis.html"]')?.addEventListener('click', function() {
+      if (window.goatcounter) {
+        goatcounter.count({ path: '/project/Bachelor-Thesis' });
       }
     });
   </script>

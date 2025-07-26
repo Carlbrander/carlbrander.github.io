@@ -1,0 +1,128 @@
+<div class="project-detail">
+
+  <div class="project-header">
+    <h3 class="h3 project-title">Investigating Deep Sensor Fusion of Camera and ToF Sensors for Obstacle Detection with Nano‑UAVs</h3>
+    <p class="project-date"><span class="research-text">Bachelor Thesis, ETH Zürich 2023</span></p>
+    
+    <div class="authors-list">
+      <p class="authors">
+        Carl Brander
+      </p>
+   
+    </div>
+
+  </div>
+
+  <div class="project-content">
+    
+    <div class="project-description">
+      
+      <!-- Abstract -->
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Abstract</h4>
+          <p>
+            Object detection on Nano‑UAVs is constrained by tight size, weight and power budgets. 
+            This thesis investigates whether fusing an 8×8‑pixel Time‑of‑Flight (ToF) depth sensor with a 320×320 grayscale camera can enhance 
+            detection performance without exceeding those limits. A family of MobileNetV2‑SSD‑lite networks—with 
+            and without feature‑level fusion—are trained on a large, automatically‑labelled synthetic dataset and evaluated on both synthetic 
+            and real scenes. While fusion improves robustness relative to random depth signals, the best 
+            camera‑only model attains a mean Average Precision (mAP) of 25.7 %, outperforming the best fusion 
+            variant (23.3 %). The work also validates a fast Webots‑based data generator and shows that fine‑tuning 
+            synthetic models with a handful of real images restores real‑world accuracy.
+            <br> <br>
+            In a subsequent proof-of-concept study I showed that the main limiting factor for the depth-fusion models performance is the
+            limited resolution of the ToF sensor. Simulating a discretized scale of ToF sensor resolutions from 16x16 up to 170x170 in Webots
+            showed a great performance boost of up to 8% mAP compared to the 8x8 sensor.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Bachelor_Thesis Project/simulator overview.jpg" alt="Simulator Overview" loading="lazy">
+          <p class="image-caption">Webots simulator environment</p>
+        </div>
+      </div>
+
+      <!-- Project Overview -->
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Project Overview</h4>
+          <p>
+            A physics‑based simulator built in Webots was extended with realistic camera noise and a custom ToF sensor model. Two acquisition modes—free exploration and “photo‑studio” staging—generated over 10 k multi‑modal frames spanning six indoor object classes. Four fusion topologies inject depth at different backbone layers and are contrasted with a width‑reduced non‑fusion baseline optimised for the GAP8 PULP processor on the Crazyflie AI‑deck. Training is orchestrated in PyTorch with extensive augmentation and hyper‑parameter search logged via Weights&nbsp;&amp;&nbsp;Biases.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Bachelor_Thesis Project/augmented simulator image.png" alt="Simulator Image" loading="lazy">
+          <p class="image-caption">Webots simulator example training image</p>
+        </div>
+      </div>
+
+      <!-- Research Focus -->
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Research Focus</h4>
+          <ul>
+            <li>Deep feature‑level fusion of grayscale and ToF depth</li>
+            <li>Automated synthetic dataset generation &amp; domain randomisation</li>
+            <li>Ultra‑lightweight object detection for sub‑5 W Nano‑UAVs</li>
+            <li>MobileNetV2‑SSD‑lite architecture search</li>
+            <li>Sim‑to‑real transfer with limited fine‑tuning</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Bachelor_Thesis Project/real world performance.png" alt="Real World Performance" loading="lazy">
+          <p class="image-caption">Real world object detection performance</p>
+        </div>
+      </div>
+
+      <!-- Key Contributions -->
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Key Contributions</h4>
+          <ul>
+            <li>Generated a 26 GB synthetic multi‑sensor dataset (≈ 10 k frames, 70 k labelled objects).</li>
+            <li>Proposed four CNN fusion schemes and a memory‑efficient non‑fusion baseline (3.1 M parameters, 228 M MACs).</li>
+            <li>Achieved 25.7 % mAP with camera‑only and 23.3 % with best fusion—first benchmark for ToF–camera fusion on Nano‑UAVs.</li>
+            <li>Validated Webots ToF model against hardware across 0.5–3 m (≤ 1 pixel error).</li>
+            <li>Demonstrated that fine‑tuning with just 10 % real data raises classification accuracy from 54 % to 81 %.</li>
+            <li>Delivered open‑source pipelines for dataset capture, preprocessing, training and on‑device deployment.</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Bachelor_Thesis Project/synthetic to real world performance.png" alt="Confusion Matrix" loading="lazy">
+          <p class="image-caption">Synthetic training to real world performance confusion matrix</p>
+        </div>
+      </div>
+
+      <!-- Technical Approach -->
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Technical Approach</h4>
+          <p>
+            ToF readings are bilinearly up‑sampled and concatenated with camera features at configurable points inside the MobileNet backbone. Networks are trained for up to 800 epochs with SGD, multi‑step learning‑rate decay and aggressive data augmentation. For deployment the models are quantised to int8 and mapped to the GAP8’s multi‑core architecture, respecting a 150 mW compute budget. Evaluation uses COCO metrics and custom tools for confusion‑matrix analysis.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Bachelor_Thesis Project/fusion_models.png" alt="Fusion Models" loading="lazy">
+          <p class="image-caption">Model architectures with different deep fusion locations</p>
+        </div>
+      </div>
+
+      <!-- Results & Impact -->
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Results &amp; Impact</h4>
+          <p>
+            Although depth fusion did not surpass the optimised camera‑only baseline, the thesis provides the first rigorous assessment of lightweight fusion for Nano‑UAV obstacle detection. The synthetic‑first workflow slashes the need for hand‑labelled data by an order of magnitude, and the open‑source tools have already been adopted by concurrent projects within the Integrated Systems Laboratory. The findings guide future work toward leveraging ToF for tasks where geometry is more discriminative, such as navigation in low‑light or texture‑less environments.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Bachelor_Thesis Project/increased tof resolution performance gain.png" alt="Resolution Performance Gain" loading="lazy">
+          <p class="image-caption">Expected performance gain from higher ToF resolution</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
