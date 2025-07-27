@@ -157,13 +157,26 @@ function updatePortrait() {
   }
 }
 
+// Placeholder thumbnail theme switch
+function updatePlaceholderThumbnail() {
+  const placeholder = document.querySelector('.project-placeholder-thumbnail');
+  if (!placeholder) return;
+  
+  const html = document.documentElement;
+  if (html.classList.contains('light-theme')) {
+    placeholder.style.background = '#ccc';
+  } else {
+    placeholder.style.background = '#444';
+  }
+}
+
 // theme toggle variables
 const themeToggle = document.getElementById("theme-toggle");
 const themeToggleMobile = document.getElementById("theme-toggle-mobile");
 const html = document.documentElement;
 
-// check for saved theme preference or default to light theme
-const currentTheme = localStorage.getItem("theme") || "light";
+// check for saved theme preference or default to dark theme
+const currentTheme = localStorage.getItem("theme") || "dark";
 if (currentTheme === "light") {
   html.classList.add("light-theme");
 } else {
@@ -173,8 +186,12 @@ if (currentTheme === "light") {
 // Update portrait on initial load - with retry mechanism
 function initializePortrait() {
   updatePortrait();
+  updatePlaceholderThumbnail();
   // Retry after a short delay to handle any race conditions
-  setTimeout(updatePortrait, 100);
+  setTimeout(() => {
+    updatePortrait();
+    updatePlaceholderThumbnail();
+  }, 100);
 }
 initializePortrait();
 
@@ -184,6 +201,9 @@ function toggleTheme() {
   
   // Update portrait when theme changes
   updatePortrait();
+  
+  // Update placeholder thumbnail when theme changes
+  updatePlaceholderThumbnail();
   
   // save theme preference to localStorage
   const isLightTheme = html.classList.contains("light-theme");
