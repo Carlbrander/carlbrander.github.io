@@ -1,0 +1,115 @@
+<div class="project-detail">
+  <div class="project-header">
+    <h3 class="h3 project-title">Gesture Controlled Smart Mirror</h3>
+    <p class="project-date"><span class="research-text">Smart Home, Personal Project</span></p>
+    <div class="authors-list">
+      <p class="authors">
+        Carl Brander 2024
+      </p>
+    </div>
+  </div>
+  <div class="project-content">
+    <div class="project-description">
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Project Overview</h4>
+          <p>
+            A smart mirror is a smart-home fusion of a standard mirror and a smart dashboard showing useful information such as public transport info, news, health data or calendar data.
+            As part of my sophisticated smart-home installation I built a fully-connected, home-assistant based 43inch smart mirror for my living room.
+            <br>This mirror is powered by a Raspberry Pi 4 used for kiosk-mode dashboard streaming in combination with a Ultraleap Controller 2 for magic gesture touch-control.
+            The software is a customized open-source home-assistant dashboard drawing data from multiple custom integrations for full home connectivity.
+            The mirror uses mm-wave radar to detect persistent motion in front of itself to turn on the screen which helps in preseving power if not used.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Smart_Mirror Project/infographic.jpg" alt="Smart Mirror Infographic" loading="lazy">
+          <p class="image-caption">Infographic Summary of Features</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Technical Stats</h4>
+          <ul>
+            <li>Semi-transparent Pilkington Mirropane Chrome Spy 4mm with 8% transmissivity</li>
+            <li>Raspberry Pi 4 4GB for dashboard streaming and gesture control</li>
+            <li>Self-built wooden frame with infinity mirror design</li>
+            <li>Index finger tracking with Ultraleap Controller 2 for gesture control</li>
+            <li>43inch ultra-flat 4k Screen for high-resolution dashboard</li>
+            <li>Custom electronics enclosure blending into the room</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Smart_Mirror Project/close_up.jpg" alt="Smart Mirror Close-Up" loading="lazy">
+          <p class="image-caption">Smart Mirror Dashboard Close-up</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Build Process</h4>
+          <p>
+            The project was started with a research and planning phase deciding on mirror size, glass thickness and transmissivity, screen resolution, 
+            processor capabilities, streaming approach and mirrors styling.
+            As there are few to no commercial products and only some self-made prototypes with conflicting conclusions, the design process was based on a lot of trial and error to find the right
+            choices.
+            Next, the screen was vertically mounted with an ultra-flat 5mm TV mount.
+            The wooden frame was constructed to fit onto the mirror glass in mm precision to allow an infinite mirror design, it then was painted and glued to the backside of the mirror using industrial-level transparent composite glue.
+            <br>
+            After finishing the hardware build process with custom 3D-printed mountings and a self-developed safety mount for the mirror glass it was time for the electrical/software installation.
+            A Raspberry pi was flashed with Ubuntu 22.04 LTS, and using an open-source kiosk dashboard application, the custom designed home-assistant dashboard was streamed onto the vertical 4k screen.
+            As for gesture controls, the Ultraleap Controller 2 was connected and their Gemini library in combination with the Python bindings and an autostart service script was used to get seamless cursor control
+            using just your index finger in front of the mirror.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Smart_Mirror Project/build_process.jpg" alt="Build Process" loading="lazy">
+          <p class="image-caption">Glueing the Spy-Mirror to the DIY Wooden Frame</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">The Dashboard</h4>
+          <ul>
+            <p>
+           The dashboard is based on the open-source home-assistant project which allows for easy .YAML config code or UI based customization of each element.
+           While it is a constant work-in-progress it visualizes the following IoT, Health, calendar and news items:
+           </p>
+           <li>Todays health tracking from swmartwatches</li>
+           <li>Latest technology news feed (RSS)</li>
+           <li>Alerts for open windows and low battery on remote sensors around the flat</li>
+           <li>Light and audio controls for nearby lamps and speakers in the room</li>
+           <li>Latest traffic announcements for most visited places</li>
+           <li>Local in-detail weather forecast</li>
+           <li>Shared google calendat via API</li>
+           <li>Online status tracker for virtual services and IoT devices</li>
+           <li>Health tracking for plants via remote IoT sensors</li>
+           <li>Temperature, humidity and lux tracking for all rooms</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Smart_Mirror Project/side_view.jpg" alt="Smart Mirror Side View" loading="lazy">
+          <p class="image-caption">Complete Mirror Dashboard in Side View</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Next Steps</h4>
+          <ul>
+            <p>
+            Various possible additions are planned for this smart mirror project.
+            Namely, an integrated IR camera running facial recognition, possibly hidden behind the semi-translucent mirror
+            would enable the mirror to detect the person watching it and could taylor its content to this person.
+            Smaller improvements such as LED backlights, NFC for smartwatch pairing or MagSafe for phone atttachment are possible improvements as well.
+            Initially, a local-first (cloud LLM fallback) voice assistant was planned as well, which has now been built outside the mirror.
+            Finally, a directed single-point thermal measurement laser could also provide live health data such as forehead temperature and warn the user of an undetected illness.
+            While many of those extensions sound interesting, only some will be implemented due to time constraints in the future.
+            </p>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Smart_Mirror Project/insides.jpg" alt="insides" loading="lazy">
+          <p class="image-caption">Ultraleap Controller 2 and DIY mm-wave presence, CO2, Particle, etc. Multisensor</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

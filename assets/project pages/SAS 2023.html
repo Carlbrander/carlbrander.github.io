@@ -1,0 +1,119 @@
+<div class="project-detail">
+
+  <div class="project-header">
+    <h3 class="h3 project-title">Improving Data-Scarce Image Classification Through Multimodal Synthetic Data Pretraining</h3>
+    <p class="project-date"><span class="research-text">Research, SAS 2023</span></p>
+    
+    <div class="authors-list">
+      <p class="authors">
+        Carl Brander<sup>1</sup>, Cristian Cioflan<sup>2</sup>, Vlad Niculescu<sup>2</sup>, Hanna Müller<sup>2</sup>, Tommaso Polonelli<sup>2</sup>, Michele Magno<sup>2</sup>, Luca Benini<sup>2</sup>
+      </p>
+      <p class="affiliation">
+        <sup>1</sup>D-MAVT, ETH Zürich, Zürich, Switzerland<br>
+        <sup>2</sup>D-ITET, ETH Zürich, Zürich, Switzerland
+      </p>
+    </div>
+    
+    <div class="project-links">
+      <a href="../../assets/files/SAS23_Paper.pdf" class="project-link" target="_blank" rel="noopener noreferrer">
+        <ion-icon name="document-outline"></ion-icon>
+        <span>Research Paper</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="project-content">
+    
+    <div class="project-description">
+      
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Abstract</h4>
+          <p>
+            Deep Learning algorithms and models greatly benefit from the release of large-scale datasets, also including synthetically generated data, when real-life data is scarce. Multimodal datasets feature more descriptive environmental information than single-sensor ones, but they are generally small and not widely accessible. In this paper, we construct a synthetically-generated image classification dataset consisting of grayscale camera images and depth information acquired from an 8×8-pixel Time-of-Flight sensor. We propose and evaluate six Convolutional Neural Network-based feature-level fusion models to integrate the multimodal data, outperforming the accuracy of the camera-only model by up to 17% in real-world settings. By pretraining the model on synthetically-generated sample pairs, followed by fine-tuning it with only 16 real-domain samples, we outperform a non-pretrained counterpart by 35% while maintaining the storage constraints in the order of hundreds of kB. Our proposed convolutional model, pretrained on both synthetic and real-world sensor data, achieves a top-1 accuracy of 86.48%, proving the benefits of using multimodal datasets to train feature-level data fusion neural networks. Low-power emerging embedded microcontrollers, such as multi-core RISC-V systems-on-chip, are perfect candidates for running our model due to their reduced power consumption and parallel computing capabilities that speed up inference.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/SAS23_Paper Project/Simulator_environment.jpg" alt="Simulator environment for synthetic data acquisition" loading="lazy">
+          <p class="image-caption">Simulator environment for synthetic data acquisition</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Project Overview</h4>
+          <p>
+            The project addresses the challenge of data scarcity in image classification for embedded systems by leveraging multimodal synthetic data. The team constructed a dataset using both grayscale camera images and depth data from a low-resolution Time-of-Flight (ToF) sensor, simulating real-world and synthetic environments. Six CNN-based feature-level fusion models were proposed and evaluated, demonstrating that multimodal fusion can significantly improve classification accuracy and data efficiency, especially when pretraining on synthetic data and fine-tuning with minimal real-world samples.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/SAS23_Paper Project/sim_to_real.jpg" alt="Sim-to-real data comparison" loading="lazy">
+          <p class="image-caption">Comparison of synthetic and real-world data samples</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Research Focus</h4>
+          <ul>
+            <li>Multimodal data fusion for image classification</li>
+            <li>Use of synthetic and real-world datasets</li>
+            <li>Low-power, embedded system deployment (TinyML)</li>
+            <li>Feature-level fusion using CNNs</li>
+            <li>Pretraining and fine-tuning strategies for data-scarce scenarios</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/SAS23_Paper Project/drone_fov.png" alt="Drone field of view and sensor setup" loading="lazy">
+          <p class="image-caption">Drone field of view and sensor setup</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Key Contributions</h4>
+          <ul>
+            <li>Developed a synthetic multimodal dataset (grayscale + ToF depth)</li>
+            <li>Proposed six CNN-based feature-level fusion models</li>
+            <li>Demonstrated up to 17% accuracy improvement over camera-only models</li>
+            <li>Showed 35% improvement with synthetic pretraining and minimal real-world fine-tuning</li>
+            <li>Validated models on both synthetic and real-world data</li>
+            <li>Enabled efficient deployment on low-power RISC-V MCUs</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/SAS23_Paper Project/Point_of_fusion.png" alt="Point of fusion in CNN architectures" loading="lazy">
+          <p class="image-caption">Feature-level fusion points in CNN architectures</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Technical Approach</h4>
+          <p>
+            The approach integrates synchronized grayscale camera and ToF depth data, both in real and simulated environments. The ToF sensor and camera are characterized and modeled in simulation to match real-world performance. Six CNN architectures are designed, each fusing features at different network layers. The models are trained and evaluated on both synthetic and real-world datasets, with a focus on memory and computational efficiency for embedded deployment. Pretraining on synthetic data followed by fine-tuning on a small real-world set is shown to maximize accuracy and data efficiency.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/SAS23_Paper Project/fine_tuning_plot.png" alt="Fine-tuning results plot" loading="lazy">
+          <p class="image-caption">Impact of synthetic pretraining and fine-tuning on real-world data</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Results & Impact</h4>
+          <p>
+            The best-performing model achieves a top-1 accuracy of 86.48% when trained on both synthetic and real-world data, with only 126k parameters. Pretraining on synthetic data and fine-tuning with as few as four real-world samples per class enables the model to surpass 70% accuracy, making it 10× more data-efficient than models trained only on real data. The models are suitable for deployment on low-power, parallel RISC-V MCUs, opening new possibilities for efficient, real-time multimodal inference in embedded and edge devices.
+          </p>
+        </div>
+        <div class="project-image">
+          <!-- User will update image -->
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div> 

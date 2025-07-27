@@ -1,0 +1,124 @@
+<div class="project-detail">
+
+  <div class="project-header">
+    <h3 class="h3 project-title">Reading in the Dark with Foveated Event Vision</h3>
+    <p class="project-date"><span class="research-text">Research, CVPRW 2025</span></p>
+    
+    <div class="authors-list">
+      <p class="authors">
+        Carl Brander<sup>1,2</sup>, Giovanni Cioffi<sup>1</sup>, Nico Messikommer<sup>1</sup>, Davide Scaramuzza<sup>1</sup>
+      </p>
+      <p class="affiliation">
+        <sup>1</sup>Robotics and Perception Group, University of Zurich, Switzerland
+      </p>
+      <p class="affiliation">
+        <sup>2</sup>ETH Zurich, Switzerland
+      </p>
+    </div>
+    
+    <div class="project-links">
+      <a href="../../assets/files/CVPRW25_Paper.pdf" class="project-link" target="_blank" rel="noopener noreferrer">
+        <ion-icon name="document-outline"></ion-icon>
+        <span>Research Paper</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="project-content">
+    
+    <div class="project-description">
+      
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Project Overview</h4>
+          <p>
+            This research introduces an innovative event-based Optical Character Recognition (OCR) system for smart glasses, specifically designed for challenging low-light and high-motion scenarios. Accepted at the IEEE CVPR Workshop (CVPRW) for event-based vision 2025, the method significantly reduces data bandwidth while providing accurate text reading capabilities in conditions unsuitable for traditional RGB cameras.
+          </p>
+          <p>
+            Leveraging foveated vision guided by eye-tracking and event-based camera sensors, the system achieves up to 2400x bandwidth reduction compared to conventional approaches, enabling efficient OCR through a combination of deep learning reconstruction and multi-modal large language models. Furthermore, it enables the system to read text in dark environments down to twilight levels.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/CVPRW25_Paper Project/Pipeline.jpg" alt="Event-based OCR Pipeline Overview" loading="lazy">
+          <p class="image-caption">Complete pipeline overview showing the event-based OCR system architecture</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Research Focus</h4>
+          <ul>
+            <li>Event-based Optical Character Recognition</li>
+            <li>Foveated vision using eye-tracking technology</li>
+            <li>Low-light and high-motion robustness</li>
+            <li>Bandwidth and power efficiency optimization</li>
+            <li>Synthetic and real-world data fusion for training</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/CVPRW25_Paper Project/LLM vs OCR.jpg" alt="LLM vs OCR Performance Comparison" loading="lazy">
+          <p class="image-caption">Performance comparison between LLM-based and traditional OCR approaches</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Key Contributions</h4>
+          <ul>
+            <li>Developed a novel OCR pipeline using event cameras</li>
+            <li>Introduced a binary image reconstruction model for event data</li>
+            <li>Reduced bandwidth usage by up to 2400 times compared to RGB cameras</li>
+            <li>Demonstrated robustness in challenging environments (e.g., low-light, high motion)</li>
+            <li>Validated the OCR performance using real-world tests and synthetic datasets</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/CVPRW25_Paper Project/file size comparison.jpg" alt="File Size Comparison - Event vs RGB" loading="lazy">
+          <p class="image-caption">Bandwidth reduction comparison showing 2400x smaller file sizes with event-based approach</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Technical Approach</h4>
+          <p>
+            The approach integrates an event-based camera with eye-tracking to foveate visual input, drastically reducing redundant data. A U-Net-based neural network reconstructs the foveated event stream into binary images. These images are then processed with OCR algorithms and multi-modal language models (LLMs) to achieve efficient and accurate text reading.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/CVPRW25_Paper Project/UNET.jpg" alt="U-Net Architecture for Binary Reconstruction" loading="lazy">
+          <p class="image-caption">U-Net neural network architecture used for binary image reconstruction from event data</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Results & Impact</h4>
+          <p>
+            The proposed event-based OCR method outperforms traditional RGB-based methods in challenging low-light and motion-heavy environments, extending the practical application of smart glasses. The system's efficient data processing makes it particularly suitable for continuous use in wearable devices, with potential applications extending beyond OCR to object detection and scene understanding.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/CVPRW25_Paper Project/Drawing Aria Glasses.jpg" alt="Aria Smart Glasses Design" loading="lazy">
+          <p class="image-caption">Aria smart glasses design showing the integration of event cameras and eye-tracking</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Low-Light Performance</h4>
+          <p>
+            The system demonstrates exceptional performance in low-light conditions, achieving accurate OCR results even at 30 lux illumination levels where traditional RGB cameras would fail.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/CVPRW25_Paper Project/Event Based OCR Result 30 Lux.jpg" alt="Event-based OCR Results at 30 Lux" loading="lazy">
+          <p class="image-caption">OCR results achieved with event-based vision in low-light conditions (30 lux)</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div> 

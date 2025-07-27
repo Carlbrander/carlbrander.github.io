@@ -1,0 +1,126 @@
+<div class="project-detail">
+  <div class="project-header">
+    <h3 class="h3 project-title">Swissloop Pod “Lavinia Heisenberg”</h3>
+    <p class="project-date"><span class="research-text">Prototype, Swissloop</span></p>
+    <div class="authors-list">
+      <p class="authors">
+        Swissloop Engineering Team (2021-2022)
+      </p>
+      <p class="affiliation">
+        ETH Zurich and partner universities, Switzerland
+      </p>
+    </div>
+    <div class="project-links">
+      <a href="https://swissloop.ch/prototypes/lavinia-heisenberg/" class="project-link" target="_blank" rel="noopener noreferrer">
+        <ion-icon name="link-outline"></ion-icon>
+        <span>Project Website</span>
+      </a>
+      <a href="https://www.ekz.ch/de/blue/innovation/2022/hyperloop-swissloop-eth.html" class="project-link" target="_blank" rel="noopener noreferrer">
+        <ion-icon name="newspaper-outline"></ion-icon>
+        <span>News Interview by myself (DE)</span>
+      </a>
+    </div>
+  </div>
+  <div class="project-content">
+    <div class="project-description">
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Project Overview</h4>
+          <p>
+            “Lavinia Heisenberg” is the first near full-scale prototype by Swissloop featuring a newly developed drive topology. The pod is capable of transporting up to 100 kg of additional payload on a standard Euro pallet. Its innovative linear switched reluctance motor (LSRM) enables a hybrid drive concept, combining on-board passive electromagnets and stationary trackside boosters for efficient acceleration and braking. The pod was designed, manufactured, assembled, and tested by a team of 31 students from various Swiss universities over a ten-month season.
+            <br> <br>
+            I was part of this team as a full-time focus student employed as "electrical integration engineer" for the full 2021-2022 season. I was responsible for the electrical integration, EMI mitigation, thermal management and packaging of the prototype.
+          
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Swissloop_Lavinia_Heisenberg Project/Pod_at_EHW.jpg" alt="Swissloop Pod at European Hyperloop Week" loading="lazy">
+          <p class="image-caption">Swissloop Pod “Lavinia Heisenberg” at European Hyperloop Week</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">The Hyperloop Concept</h4>
+          <p>
+            The concept of travelling through tubes with hardly any air in it, thus reducing the aerodynamic drag and enabling travel at high speeds, has been around since the early 19th century. Today, the Hyperloop concept usually refers to a well-known white paper published in 2013 by Elon Musk in collaboration with a joint team from Tesla and SpaceX. Said paper suggests that transport “pods” gradually accelerate using a linear electric motor and glide above their track on air bearings through near-evacuated tubes below or above the ground. This should allow the pods to travel at speeds of up to 1’200km/h, whilst being more energy-efficient, quiet and autonomous than other modes of transportation. Thus, the Hyperloop concept has the potential of optimizing long-distance travel by combining the efficacy of modern-day railway systems with the speed of air travel.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Swissloop_Lavinia_Heisenberg Project/hyperloop.jpg" alt="Hyperloop Concept" loading="lazy">
+          <p class="image-caption">The Hyperloop concept: high-speed travel in near-vacuum tubes</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">What is Swissloop?</h4>
+          <p>
+            Swissloop is a student-led initiative with the goal of contributing to the research on and advancement of the Hyperloop technology and its application in the real world. To do our part in shaping this new mode of transportation, our team designs and builds operational prototypes of transport capsules — so-called “pods” — with which we compete in international competitions and take part in conferences. In partaking in this event, we aim to not just add to the further development of this technology, but also collect valuable practical experience in the technical and operational aspects of the project. In addition, we want to help raise public awareness of the Hyperloop concept it’s, and its implications for our everyday life and its impact on the future of transportation and mobility technology.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Swissloop_Lavinia_Heisenberg Project/Group_Picture_EHW.jpg" alt="Swissloop Lavinia Heisenberg team group photo" loading="lazy">
+          <p class="image-caption">The Swissloop Lavinia Heisenberg team</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Key Features</h4>
+          <ul>
+            <li>Novel propulsion system with linear switched reluctance motor (LSRM)</li>
+            <li>Payload capacity: up to 100 kg on a standard Euro pallet</li>
+            <li>Aluminium-sandwich chassis with carbon fibre shell</li>
+            <li>Variable pneumatic control pressure brake with disc springs</li>
+            <li>Custom SiC-MOSFET inverter and battery management system</li>
+            <li>CAN system bus for digital integration and sensor data</li>
+            <li>3D printed and topology optimized heatsinks</li>
+            <li>Developed and assembled by a multidisciplinary student team</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Swissloop_Lavinia_Heisenberg Project/Pod_insides_1.jpg" alt="Swissloop Team at EHW" loading="lazy">
+          <p class="image-caption">Hyperloop pod electrical integration</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Technical Details: Electrical</h4>
+          <p>
+            The LSRM accelerates the pod by switching pulsed direct current through sixteen coils, generating up to 0.5 g of acceleration. The inverter, adapted from a previous prototype, uses FPGA-based hysteresis control for precise coil switching. The pod is powered by two detachable battery boxes, each containing 12 LiPo modules, providing a total of 400 V and peak currents up to 400 A. The electrical system is divided into high-voltage and low-voltage boxes, with a central control unit managing vehicle and inverter operations via CAN-FD buses. The battery management system (BMS) monitors each cell for safety and performance.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Swissloop_Lavinia_Heisenberg Project/electrical_view.JPG" alt="Electrical system view" loading="lazy">
+          <p class="image-caption">Self-built electronics and wiring</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Technical Details: Mechanical</h4>
+          <p>
+            The chassis is constructed from an aluminium and foam sandwich structure, covered by a carbon fibre reinforced plastic shell for aerodynamics and protection. The suspension system uses industry-grade shock absorbers and rubber torsion springs to absorb track disturbances and maintain stability. The pod features a variable pneumatic pressure brake with disc springs for safe and redundant braking under all circumstances. The braking force is software-controlled and can be regulated for smooth deceleration. The pod’s design allows for easy access to all subsystems and efficient integration with the new track interface.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Swissloop_Lavinia_Heisenberg Project/heatsinks.JPG" alt="3D printed and topology optimized heatsinks" loading="lazy">
+          <p class="image-caption">3D printed and topology optimized heatsinks for thermal management by myself</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Performance & Awards</h4>
+          <ul>
+            <li>Net weight: 224 kg</li>
+            <li>Payload: 100 kg</li>
+            <li>Length: 2.95 m, Width: 1.37 m, Height: 1.12 m</li>
+            <li>Acceleration: up to 0.5 g</li>
+            <li>Two awards at EHW (The European Hyperloop Week)</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Swissloop_Lavinia_Heisenberg Project/Pod_insides_2.JPG" alt="Pod mechanical details" loading="lazy">
+          <p class="image-caption">Detailed view of pod's electrical integration</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
