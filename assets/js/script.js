@@ -170,8 +170,13 @@ if (currentTheme === "light") {
   html.classList.remove("light-theme");
 }
 
-// Update portrait on initial load
-updatePortrait();
+// Update portrait on initial load - with retry mechanism
+function initializePortrait() {
+  updatePortrait();
+  // Retry after a short delay to handle any race conditions
+  setTimeout(updatePortrait, 100);
+}
+initializePortrait();
 
 // theme toggle functionality
 function toggleTheme() {
@@ -202,6 +207,9 @@ function setupThemeToggles() {
   if (themeToggleMobile) {
     themeToggleMobile.addEventListener("click", toggleTheme);
   }
+  
+  // Ensure portrait is correct when toggles are set up
+  updatePortrait();
 }
 
 //-----------------------------------*\
@@ -258,10 +266,17 @@ document.addEventListener("keydown", function (e) {
 // Set up toggles when DOM is ready
 document.addEventListener("DOMContentLoaded", function() {
   setupThemeToggles();
+  // Force portrait update on DOM ready
+  updatePortrait();
 });
 
 // Also try setting up immediately in case DOM is already ready
 setupThemeToggles(); 
+
+// Force update on window load as well (to handle any remaining timing issues)
+window.addEventListener("load", function() {
+  updatePortrait();
+}); 
 
 function setFavicon(theme) {
   // Remove existing favicons

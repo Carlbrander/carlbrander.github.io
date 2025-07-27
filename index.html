@@ -38,6 +38,26 @@
           html.classList.remove("dark-theme");
         }
       }
+      
+      // Update portrait image immediately after theme is set
+      function updatePortraitImage() {
+        const img = document.getElementById('portrait-img');
+        if (img) {
+          const html = document.documentElement;
+          if (html.classList.contains('light-theme')) {
+            img.src = img.getAttribute('data-light');
+          } else {
+            img.src = img.getAttribute('data-dark');
+          }
+        }
+      }
+      
+      // Wait for DOM to be ready, then update portrait
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updatePortraitImage);
+      } else {
+        updatePortraitImage();
+      }
     })();
   </script>
 
