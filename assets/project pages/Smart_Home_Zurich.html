@@ -1,0 +1,138 @@
+<div class="project-detail">
+  <div class="project-header">
+    <h3 class="h3 project-title">The Smart Home of the Future</h3>
+    <p class="project-date"><span class="research-text">Smart Home, Personal Project</span></p>
+    <div class="authors-list">
+      <p class="authors">
+        Carl Brander 2021-2025
+      </p>
+    </div>
+  </div>
+  <div class="project-content">
+    <div class="project-description">
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Project Overview</h4>
+          <p>
+            This project page is a summary of the main features and automations running in my flat in Zurich.
+            It showcases how well a smart-home can be inter-connected if 100+ devices from various manufacturers work in sync.
+            Timewise, this project has consumed by far most of my free-time in the past years. But in return, it showcases 
+            a futuristic smart-home state which wont be seen in households within the next 20+ years.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Smart_Home_Zurich Project/smart_home_zurich.jpg" alt="Smarthome app connectivity" loading="lazy">
+          <p class="image-caption">Smarthome App Connectivity</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Hardware/Communication Layout</h4>
+          <ul>
+              <p>
+                The smart-home is controlled by a local Home Assistant server running on Proxmox. Other essential networking hardware 
+                required is a Unifi Cloud Gateway Ultra and a U6 Access Point for internet/Wifi connectivity. The Second network mode 
+                is Zigbee which runs over a Zigbee-PoE coordinator, it is used to communicate to the various battery-powered devices.
+                Third, a Bluetooth dongle ensures the connectivity for Bluetooth-based devices around the home. 
+                While Zigbee utilizes a mesh-based network natively, the Bluetooth connectivity is guaranteed through a handfull of EspHome
+                endpoints which act as Bluetooth proxies converting bluetooth signals to wifi around their location.
+                On the endpoint side about a dozen ESPHome (ESP32 Microcontroller based sensors) as well as many 3rd party smart devices
+                are connected through these endpoints.
+              </p>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Solar_Home Project/Power_Flow_Diagram.png" alt="Hardware Layout" loading="lazy">
+          <p class="image-caption"> Power Flow Diagram</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Software Layout</h4>
+          <p>
+            Home Assistant OS is the main software platform running the smart-home as the central hub. It integrates 44+ integrations (each representing a different manufacturer integrating their devices/APIs into Home Assistant).
+            These integrations are used to connect the 260+ devices with 1300+ entities (each representing a different sensor/actuator/measurement) in the smart-home.
+            This central hub is also used to host addons such as local wakeword detection for voice control, Zigbee and MQTT brokers, and music streaming synchronization services.
+            The main automations are written in YAML with Python scripts used for more complex tasks.
+            Multiple dashboards are used to visualize the data and control the smart-home. One of them is further described in the smart mirror project. 
+            Other dashboards include phone and notebook optimized versions for on-the-go control.
+            The entire system is designed to be modular and easily extendable, allowing for new devices and automations to be added as needed.
+            The Home Assistant OS runs on a Proxmox VM in parallel to other non-related services. 
+
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Solar_Home Project/Control_Flow_Diagram.png" alt="Control Flow Diagram" loading="lazy">
+          <p class="image-caption">Control Flow Diagram</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Automation Highlights</h4>
+          <ul>
+            <p>
+              Out of the dozens of automations constantly running, checking sensor states and triggering actions, here are some of the highlights:
+              <ul>
+                <li>Automated, dimmed lighting control in most rooms, based on occupancy and natural light levels.</li>
+                <li>CO2 monitoring and warning system to ensure healthy air quality.</li>
+                <li>Window sensors for open/close detection, especially when leaving the place.</li>
+                <li>Integration with weather forecasts to inform and optimize manual heat management.</li>
+                <li>Automated house state (asleep, awake, away) detection and putting all devices into off mode when not needed.</li>
+                <li>Local voice control in most rooms with a local first, OpenAI LLM second pipeline for a balance between privacy and functionality.</li>
+                <li>Scene setups for different activities (e.g., movie night, cooking, sleeping) that adjust lighting, temperature, and media playback.</li>
+                <li>Combining multiple light sources per room into "master lights" for simple control.</li>
+                
+              </ul>
+            </p>
+           </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Solar_Home Project/self-consumption_change.jpg" alt="self-consumption change" loading="lazy">
+          <p class="image-caption">Increase in relative self-consumption (yellow)</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Quality of Life improvement</h4>
+          <ul>
+            <p>
+            ...kjasdhfkahsdflkajdshflkjaflkajdsf
+          </p>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Solar_Home Project/future_implementations.jpg" alt="future Solar Implementations" loading="lazy">
+          <p class="image-caption">Possible Future Crypto Integration</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Conclusion</h4>
+          <ul>
+            <p>
+            ...kjasdhfkahsdflkajdshflkjaflkajdsf
+          </p>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Solar_Home Project/future_implementations.jpg" alt="future Solar Implementations" loading="lazy">
+          <p class="image-caption">Possible Future Crypto Integration</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Future Additions</h4>
+          <ul>
+            <p>
+            ...kjasdhfkahsdflkajdshflkjaflkajdsf
+          </p>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Solar_Home Project/future_implementations.jpg" alt="future Solar Implementations" loading="lazy">
+          <p class="image-caption">Possible Future Crypto Integration</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

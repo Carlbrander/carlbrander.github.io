@@ -1,0 +1,86 @@
+<div class="project-detail">
+  <div class="project-header">
+    <h3 class="h3 project-title">Job-Agent: Automatic Daily Job Updates</h3>
+    <p class="project-date"><span class="research-text">Scraper Agent, Personal Project</span></p>
+    <div class="authors-list">
+      <p class="authors">
+        Carl Brander 2025
+      </p>
+    </div>
+  </div>
+  <div class="project-content">
+    <div class="project-description">
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Project Overview</h4>
+          <p>
+            The Job-Agent was a small side-project built during the 2025 summer as part of my job search at the end 
+            of my Master's. It is a self-hosted scraper agent pipeline capable of scraping dozens of websites autonomously. 
+            Its goal is to inform me about new job postings from selected companies on a daily basis.<br>
+            It features de-duplication through hashing, location- and type-filtering as well as building a database of seen jobs.
+            The user is informed about new, relevant jobs found through Pushbullet on all devices.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Job_Agent Project/JobAgent.jpg" alt="Job-Agent Overview" loading="lazy">
+          <p class="image-caption">Job Agent Overview</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Agent flow</h4>
+          <ul>
+              <p>
+                After the daily activation, the Job-Agent scrapes all websites sequentially, saving job titles, locations, and other information.
+                Due to a lot of job-sites being very JS-heavy and requiring advanced techniques, a headless web-browser is used to visualize the websites fully
+                before extracting the data contained within.
+                This information is hashed and the hash is compared to a continuously growing database of previously seen jobs. This de-duplication
+                makes sure each job is only forwarded a single time (when it is first seen) even if it is persistent for multiple days.
+                After this step, a filter for location and specific job-types such as full-time or engineering positions is applied.
+                Finally, all newly found jobs are pushed to connected devices over pushbullet including a summary of how many new and total jobs are available. 
+              </p>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Job_Agent Project/pushbullet_messages.jpg" alt="Pushbullet Messages" loading="lazy">
+          <p class="image-caption"> Example Pushbullet Notifications</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Resulting Benefits</h4>
+          <p>
+            The creation of this Job-Agent has not only improved my understanding of websites and the tools required to navigate them
+            programmatically, but has also saved me a lot of time during the job hunt. The estimated daily time saved could be well over
+            half an hour each day over multiple months. Furthermore, it was an easy example of deploying continusouly
+            running software on my homelab server. The project has also gained interest within my friends group and was shared multiple
+            times for others to use as well.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Job_Agent Project/before_and_after.jpg" alt="Before and After" loading="lazy">
+          <p class="image-caption">Benefits of a Job-Agent</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Future Improvements</h4>
+          <ul>
+            <p>
+              In the future I plan to improve customizability for filtering different job fields, types and specific companies.
+              Possibly I'll even add a UI on a webserver for easier configuration. Also, I want add to some data analytics to the UI 
+              showing the number of jobs available throughout the year.
+              Another idea is to filter all scraped jobs through an LLM interpreting the description and ranking/filtering them
+              based on my skills. This will be added once I have a local LLM available in my homelab.
+            </p>
+           </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Job_Agent Project/future_improvements.jpg" alt="statistics" loading="lazy">
+          <p class="image-caption">Future Improvements</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div> 
