@@ -230,7 +230,7 @@
             I'm a recent robotics master student graduate from ETH Zurich. <br>
             Throughout my studies I spent time at Tesla, Microsoft and McKinsey & Company. 
             I also led a 38-person engineering student project for a full year. 
-            I'm passionate about deep tech, especially AI, computer vision and robotics. 
+            I'm passionate about deep tech, especially AI, computer vision and robot learning. 
             While I'm a tech enthusiast, I also enjoy managing and coordinating
             fast-paced projects. <br>
             <br>
@@ -284,22 +284,6 @@
 
             <li class="service-item">
 
-              <a href="#" class="project-link" data-project="assets/project pages/Solar_Home.html" id="project-link-solar-home-highlight">
-                <div class="service-content-box">
-                  <figure class="highlight-img">
-                    <img src="./assets/images/thumbnails/solar_home.jpg" alt="Solar Home Project" loading="lazy">
-                  </figure>
-                  
-                  <h4 class="h4 service-item-title">Next Level Solar Home Automation</h4>
-                </div>
-              </a>
-
-            </li>
-
-
-
-            <li class="service-item">
-
               <a href="#" class="project-link" data-project="assets/project pages/CVPRW 2025.html" id="project-link-cvprw2025">
                 <div class="service-content-box">
                   <figure class="highlight-img">
@@ -310,6 +294,17 @@
                 </div>
               </a>
 
+            </li>
+
+            <li class="service-item">
+              <a href="#" class="project-link" data-project="assets/project pages/Simulation_Hackathon.html" id="project-link-simulation-hackathon-highlight">
+                <div class="service-content-box">
+                  <figure class="highlight-img">
+                    <img src="./assets/images/thumbnails/SimulationHackathon.jpg" alt="Simulation Hackathon Project" loading="lazy">
+                  </figure>
+                  <h4 class="h4 service-item-title">From Human to Humanoid: <br> NVIDIA Zurich Hackathon</h4>
+                </div>
+              </a>
             </li>
 
           </ul>
@@ -785,7 +780,19 @@
 
           <ul class="project-list">
 
-
+            <!-- Simulation Hackathon Student Project -->
+            <li class="project-item active" data-filter-item data-category="student">
+              <a href="#" class="project-link" data-project="assets/project pages/Simulation_Hackathon.html" id="project-link-simulation-hackathon">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/thumbnails/SimulationHackathon.jpg" alt="Simulation Hackathon Project" loading="lazy">
+                </figure>
+                <h3 class="project-title">From Human to Humanoid: NVIDIA Zurich Hackathon</h3>
+                <p class="project-category">Student – 2025</p>
+              </a>
+            </li>
             
             <!-- Solar Home Personal Project -->
             <li class="project-item active" data-filter-item data-category="personal">
@@ -878,6 +885,8 @@
 
               </a>
             </li>
+
+            
 
             <!-- Swissloop Bertrand Piccard Project (Student Project Modal) -->
             <li class="project-item active" data-filter-item data-category="student">
@@ -1169,6 +1178,13 @@
     document.querySelector('[data-project="assets/project pages/Bachelor_Thesis.html"]')?.addEventListener('click', function() {
       if (window.goatcounter) {
         goatcounter.count({ path: '/project/Bachelor-Thesis' });
+      }
+    });
+
+    // GoatCounter event tracking for Simulation Hackathon project modal open
+    document.getElementById('project-link-simulation-hackathon')?.addEventListener('click', function() {
+      if (window.goatcounter) {
+        goatcounter.count({ path: '/project/Simulation-Hackathon' });
       }
     });
   </script>

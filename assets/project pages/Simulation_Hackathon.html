@@ -1,0 +1,100 @@
+<div class="project-detail">
+  <div class="project-header">
+    <h3 class="h3 project-title">From Human to Humanoid</h3>
+    <p class="project-date"><span class="research-text">Simulation Hackathon</span></p>
+    <div class="authors-list">
+      <p class="authors">
+        Carl Brander, Ludek Cizinsky - 2025
+      </p>
+    </div>
+  </div>
+  <div class="project-content">
+    <div class="project-description">
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Project Overview</h4>
+          <p>
+            In a team of two with Ludek Cizinsky, over the course of 48 hours, we implemented a pipeline inspired by Berkeley’s brand new VideoMimic framework.
+            Using monocular RGB videos captured on an iPhone, we reconstructed 3D human motion via Human3R to obtain SMPL-X pose sequences. 
+            These were retargeted to an H1 humanoid model using ProtoMotions from NVIDIA Research, 
+            followed by reinforcement learning of a full-body tracking policy in Isaac Lab leveraging NVIDIA’s provided cloud compute.
+            We further explored MaskedMimic for policy robustness, with promising results despite limited data and time.
+          </p>
+        </div>
+        <div class="project-image">
+          <video src="../../assets/images/Simulation_Hack Project/zurihack.mp4" autoplay loop muted playsinline style="width:100%; border-radius:12px;"></video>
+          <p class="image-caption">Simulation Hack Project Summary</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">3D Human Reconstruction</h4>
+          <p>
+            To obtain 3D human motion from monocular RGB videos, we utilized the Human3R framework developed by the Max Planck Institute for Informatics.
+            Human3R employs a combination of deep learning and optimization techniques to reconstruct accurate 3D human poses and shapes from single-view images or videos.
+            The framework leverages the SMPL-X model, which represents the human body with detailed shape and pose parameters, allowing for realistic and expressive reconstructions.
+            We captured videos using an iPhone, ensuring good lighting and minimal occlusions to enhance reconstruction quality.
+            The activities captured included walking, lifting boxes, boxing and pushups.
+          </p>
+        </div>
+        <div class="project-image">
+          <video src="../../assets/images/Simulation_Hack Project/Walking.mp4" autoplay loop muted playsinline style="width:100%; border-radius:12px;"></video>
+          <p class="image-caption">SMPL-X from Iphone Video</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Humanoid Retargeting</h4>
+          <p>
+            For retargeting the SMPL-X pose sequences to the H1 humanoid model, we employed ProtoMotions, a method developed by NVIDIA Research.
+            ProtoMotions provides a way to map human motion data to humanoid robots by learning a set of prototypical motions that can be adapted to different robot morphologies.
+            This approach allows for effective transfer of human-like movements to robots, enabling them to perform complex tasks with greater agility and naturalness.
+            We adapted the ProtoMotions framework to our specific use case, ensuring that the retargeted motions were compatible with the H1 humanoid's kinematics and dynamics.
+          </p>
+        </div>
+        <div class="project-image">
+          <video src="../../assets/images/Simulation_Hack Project/Boxing.mp4" autoplay loop muted playsinline style="width:100%; border-radius:12px;"></video>
+          <p class="image-caption">Human Model in IsaacLab before Retargeting</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">RL Trained Full-Body Tracker</h4>
+          <p>
+            We deployed reinforcement learning in IsaacLab to train a full-body tracking policy for the H1 humanoid model.
+            It is based on the NVIDIA Research ProtoMotions framework, which provides a robust foundation for learning complex motor skills in humanoid robots.
+            Using the retargeted motion sequences as reference trajectories, we trained the policy to mimic the desired movements while adhering to the physical constraints of the robot.
+            The training process involved simulating the robot's interactions with the environment (terrain / lifting boxes), allowing it to learn from trial and error.
+            We utilized NVIDIA's cloud compute resources to accelerate the training process, enabling us to iterate quickly and refine the policy over the course of the hackathon.
+            We deployed four instances of IsaacLab in parallel L40S GPU containers, each training a separate policy variant with different hyperparameters.
+            Furthermore, we gave MaskedMimic (also implemented in ProtoMotions) a try, which randomly masks out parts of the reference motion during training to improve policy robustness.
+
+          </p>
+        </div>
+        <div class="project-image">
+          <video src="../../assets/images/Simulation_Hack Project/Robot.mp4" autoplay loop muted playsinline style="width:100%; border-radius:12px;"></video>
+          <p class="image-caption">Humanoid training a walking policy</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">The Hackathon</h4>
+          <ul>
+            <p>
+            The Hackathon was organized by Simon Sure from "ZURICH BUILDS", with NVIDIA, Flexion Robotics and Jua AI as sponsors.
+            Taking place in the Jua office in Zurich, we kicked the event off on Friday evening with an introduction.
+            My teammate Ludek Cizinsky and I then started brainstorming ideas and combined our research interests in robotics simulation and human 3D reconstruction.
+            We spent the next 48 hours working intensively on the project. After what felt like only a couple of hours, we presented our results to the judges on Sunday afternoon.
+            The panel of judges including ETH professors and none other than Lucas Beyer were all very impressed by our results, especially considering the limited time frame.
+            While another team won the hackathon with a simulated, LLM-based social media project, we left with a great sense of accomplishment and new skills in simulation and reinforcement learning.
+            </p>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Simulation_Hack Project/SimulationHackathon.png" alt="Hackathon Sponsors" loading="lazy">
+          <p class="image-caption">Hackathon Sponsors</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
