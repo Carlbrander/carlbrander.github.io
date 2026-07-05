@@ -1,0 +1,102 @@
+<div class="project-detail">
+  <div class="project-header">
+    <h3 class="h3 project-title">Circular Desk Display for the Workplace</h3>
+    <p class="project-date"><span class="research-text">Embedded, Personal Project</span></p>
+    <div class="authors-list">
+      <p class="authors">
+        Carl Brander 2026
+      </p>
+    </div>
+  </div>
+  <div class="project-content">
+    <div class="project-description">
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Project Overview</h4>
+          <p>
+            A small always-on desk companion that surfaces the information I check most often during a workday at a single glance.
+            Instead of unlocking my phone or digging through calendar and transport apps, the display shows the current day, time, my next meetings, the upcoming tram departures towards home and the local weather right on my desk.
+            <br>
+            The device is built around a circular IPS LCD with an integrated physical dial (a bought MaTouch ESP32-S3 rotary display) driven by an ESP32-S3.
+            The dial doubles as a rotary encoder with a push button, so the whole interface is controlled by turning and pressing, complemented by the capacitive touch screen.
+            It sits on a custom 3D-printed angled stand that tilts the screen towards the viewer.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Workplace_Display Project/main_screen.jpg" alt="Circular display showing time, next meeting and tram departures" loading="lazy">
+          <p class="image-caption">Main screen with day, time, next meeting and live tram departures</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Technical Stats</h4>
+          <ul>
+            <li>MaTouch ESP32-S3 rotary 2.1inch round IPS display (ST7701, 480x480) with capacitive touch</li>
+            <li>ESP32-S3 with PSRAM, WiFi connected and NTP time synchronised</li>
+            <li>Physical rotary dial (encoder) plus push button as the primary input</li>
+            <li>Custom 3D-printed angled desk stand</li>
+            <li>Firmware in C++ on the Arduino framework, built with PlatformIO</li>
+            <li>LVGL 8.3 user interface with a hand-tuned SquareLine layout</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Workplace_Display Project/on_desk.jpg" alt="The display placed on a desk next to a keyboard and monitor" loading="lazy">
+          <p class="image-caption">The finished device living on my desk next to the keyboard</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">The Screens</h4>
+          <p>
+            The interface is a carousel of full-screen views that are reached by swiping or turning the dial, each optimised for the round display.
+          </p>
+          <ul>
+            <li>Main screen: day, date and a large clock with a coloured progress arc, plus a compact strip for the next meeting, tram or weather</li>
+            <li>Next Meetings: a scrollable list of today's remaining calendar events with adaptive font sizing for long titles</li>
+            <li>Tram departures: the next connections towards home, with real-time delays and multi-leg connection chains</li>
+            <li>Weather: current temperature with today's min and max on a bar, weather condition and rain probability</li>
+            <li>Settings: toggles for which widgets appear on the main screen and when, persisted on the device</li>
+            <li>Timer and alarm: set a countdown by turning the dial, with a gentle fading alarm when meetings or timers are due</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Workplace_Display Project/front_view.jpg" alt="Front view of the circular display in its aluminium bezel" loading="lazy">
+          <p class="image-caption">Front view of the round display in its aluminium rotary bezel</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">How It Works</h4>
+          <p>
+            All the data is fetched live over WiFi from background tasks pinned to a dedicated core, so the interface stays responsive while the network work happens.
+            The calendar is read directly from an Outlook / Office365 ICS feed over HTTPS and parsed on the device into today's upcoming meetings.
+            Tram departures come from the Swiss public transport API, resolving full door-to-door connections with their delays and the chain of tram lines to take.
+            The weather is pulled from the open-meteo forecast for my location, giving the current temperature, daily range and precipitation outlook.
+            <br>
+            Getting reliable HTTPS on a memory-constrained microcontroller was the hardest part.
+            The large Office365 certificate chains and RSA handshakes need a lot of scratch memory, so the TLS allocator was tuned into a hybrid that keeps small, hot buffers in fast internal RAM and only spills the rare large allocations to the slower PSRAM.
+            The display refresh rate and blanking porches were also lowered to free up PSRAM bandwidth so calendar fetches would not cause the screen to tear.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Workplace_Display Project/main_screen.jpg" alt="Close-up of the main screen with the progress arc" loading="lazy">
+          <p class="image-caption">The clock arc, next meeting and tram strip all update live</p>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Next Steps</h4>
+          <ul>
+            <p>
+            The device is already part of my daily desk setup, but there are a few extensions I would like to add.
+            As I plan to give the dial more agency, a lightweight authentication step will likely become necessary in a larger office setting.
+            This matters most once I add smart-home controls, letting me adjust certain aspects of my home directly from the dial, and quick actions such as sending a preconfigured "I'll be home late" message with a single press.
+            On top of that, a presence-based dimming mode could turn the backlight off when I step away from the desk, going beyond the current night schedule.
+            Adding sensors such as CO2, temperature, humidity or particulate matter into the base would also provide some nice local datapoints to surface right on the display.
+            </p>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
