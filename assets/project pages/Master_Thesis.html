@@ -1,0 +1,148 @@
+<div class="project-detail">
+
+  <div class="project-header">
+    <h3 class="h3 project-title">Augmenting VLAs with Spatial Co-Training Robot Data</h3>
+    <p class="project-date"><span class="research-text">Research, Master's Thesis 2026</span></p>
+
+    <div class="authors-list">
+      <p class="authors">
+        Carl Brander<sup>1,2</sup>
+      </p>
+      <p class="affiliation">
+        <sup>1</sup>Microsoft Spatial AI Lab
+      </p>
+      <p class="affiliation">
+        <sup>2</sup>ETH Zurich, Switzerland
+      </p>
+      <p class="affiliation">
+        Supervisors: Isar Meijer, Jeffrey Delmerico, Oier Mees, Marc Pollefeys
+      </p>
+    </div>
+
+    <div class="project-links">
+      <a href="../../assets/images/Master_Thesis Project/Master Thesis Report - Carl Brander.pdf" class="project-link" target="_blank" rel="noopener noreferrer">
+        <ion-icon name="document-outline"></ion-icon>
+        <span>Master's Thesis</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="project-content">
+
+    <div class="project-description">
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Project Overview</h4>
+          <p>
+            Vision-Language-Action (VLA) policies generalize well, but they are typically trained on robot
+            datasets that lack explicit spatial supervision. This thesis, carried out at the Microsoft Spatial
+            AI Lab and ETH Zurich, introduces a low-cost, post-collection pseudo-labeling pipeline that augments
+            monocular robot datasets with spatial supervision.
+          </p>
+          <p>
+            By co-training the vision-language backbone on pseudo-labeled spatial modalities, namely 3D bounding
+            boxes, depth, and spatial visual question answering (VQA), before policy learning, the method
+            injects geometry-aware supervision while staying compatible with standard VLA training recipes.
+            Co-training on this spatially annotated data improves downstream task success rates by up to
+            <strong>8.8 points on SIMPLER</strong> and <strong>4.1 points on LIBERO</strong> over a matched baseline.
+          </p>
+          <p>
+            The results presented here reflect only the final 2.5 months of the thesis.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Master_Thesis Project/main figure.jpg" alt="Overview of spatial VLA co-training augmenting monocular robot data" loading="lazy">
+          <p class="image-caption">A post data-collection pseudo-labeling pipeline augments monocular robot datasets with spatial supervision, improving downstream VLA success by up to 8.8%.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Pseudo-Spatial Annotation Pipeline</h4>
+          <p>
+            The core contribution is a modular, non-learned annotation pipeline that turns a single monocular RGB
+            frame into spatial supervision without depth sensors or manual 3D labeling. It chains three foundation
+            models: Qwen3-VL for open-set scene parsing, SAM&nbsp;3 for instance masks, and MoGe-2 for monocular
+            geometry.
+          </p>
+          <ul>
+            <li>Objects are detected, segmented, and lifted into 3D using pseudo-metric mono-depth.</li>
+            <li>Gravity-aligned, minimum-volume oriented 3D boxes are fit with a RANSAC surface-alignment stage.</li>
+            <li>Metric scale is recovered by aligning point-cloud object heights with VLM-provided size priors.</li>
+            <li>Outputs are exported as reusable modalities: 3D boxes, depth maps, masks, normals, and point clouds.</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Master_Thesis Project/annotation pipeline explanation.jpg" alt="Detailed 3D bounding box pseudo-labeling pipeline" loading="lazy">
+          <p class="image-caption">The 3D bounding-box pseudo-labeling pipeline: VLM open-set proposals, grounded segmentation masks, and monocular depth are combined to fit gravity-aligned 3D boxes.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Three Spatial Pseudo-Datasets</h4>
+          <p>
+            From BridgeData&nbsp;V2 and Fractal (Open-X) robot data, the pipeline generates three complementary
+            pseudo-datasets, each spanning 5.7&nbsp;million images and all transformed into a unified VQA-style
+            format for interleaved VLM co-training:
+          </p>
+          <ul>
+            <li><strong>Spatial VQA</strong>: ~320&nbsp;million questions covering distances, relations, size, and localization.</li>
+            <li><strong>3D Bounding Boxes</strong>: ~340&nbsp;million questions, tokenized into a shared 1024-bin location vocabulary.</li>
+            <li><strong>Depth</strong>: VQ-VAE depth tokens compressing each depth map into 256 discrete codes.</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Master_Thesis Project/spatial datasets generated.jpg" alt="Three spatial pseudo datasets: spatial VQA, 3D bounding boxes, and depth" loading="lazy">
+          <p class="image-caption">The three spatial pseudo-datasets generated from BridgeData V2 and Fractal robot data, all cast into a VQA-style format for co-training.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Architecture &amp; Training</h4>
+          <p>
+            A two-stage recipe first co-trains the VLM backbone (Qwen2.5-VL-7B) on the pseudo-spatial data with a
+            standard teacher-forced cross-entropy loss, then optimizes the downstream VLA policy. The co-trained
+            VLM is turned into a VLA by attaching a modular flow-matching action head, following VLM4VLA, where
+            action tokens cross-attend to the VLM token sequence at each action-head layer.
+          </p>
+          <ul>
+            <li>Four backbone variants: 3D-box only, depth only, spatial-VQA only, and all three jointly.</li>
+            <li>A soft Gaussian CE-loss with an annealed sigma gives a denser signal for the coherent 3D location tokens.</li>
+            <li>Joint variant uses a 55% / 35% / 10% mixture of 3D-box, depth, and spatial-VQA data.</li>
+          </ul>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Master_Thesis Project/architecture used.jpg" alt="VLM backbone co-training and VLA policy architecture" loading="lazy">
+          <p class="image-caption">Left: the VLM backbone co-trained with cross-entropy on spatial data. Right: the VLA policy with a flow-matching action head cross-attending to the VLM.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="text-content">
+          <h4 class="h4">Results &amp; Impact</h4>
+          <p>
+            Across robotic manipulation benchmarks, spatial co-training consistently improves downstream success
+            over a matched baseline. Using all three modalities yields <strong>+8.8 points on SIMPLER</strong> and
+            <strong>+4.1 points on LIBERO</strong>. Ablations show depth supervision is the most consistent
+            single-modality gain, while combining modalities gives the best cross-benchmark balance.
+          </p>
+          <p>
+            These findings show that inexpensive pseudo-spatial annotations can effectively scale VLA pretraining
+            and complement recent co-training strategies in robot learning, without changing the underlying
+            policy-learning recipe.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../../assets/images/Master_Thesis Project/spatial annotation results.jpg" alt="Qualitative spatial annotation results" loading="lazy">
+          <p class="image-caption">Qualitative spatial annotation results produced by the pseudo-labeling pipeline across diverse scenes.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

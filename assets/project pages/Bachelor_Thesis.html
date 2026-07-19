@@ -24,8 +24,8 @@
           <p>
             Object detection on Nano‑UAVs is constrained by tight size, weight and power budgets. 
             This thesis investigates whether fusing an 8×8‑pixel Time‑of‑Flight (ToF) depth sensor with a 320×320 grayscale camera can enhance 
-            detection performance without exceeding those limits. A family of MobileNetV2‑SSD‑lite networks—with 
-            and without feature‑level fusion—are trained on a large, automatically‑labelled synthetic dataset and evaluated on both synthetic 
+            detection performance without exceeding those limits. A family of MobileNetV2‑SSD‑lite networks, with 
+            and without feature‑level fusion, are trained on a large, automatically‑labelled synthetic dataset and evaluated on both synthetic 
             and real scenes. While fusion improves robustness relative to random depth signals, the best 
             camera‑only model attains a mean Average Precision (mAP) of 25.7 %, outperforming the best fusion 
             variant (23.3 %). The work also validates a fast Webots‑based data generator and shows that fine‑tuning 
@@ -47,7 +47,7 @@
         <div class="text-content">
           <h4 class="h4">Project Overview</h4>
           <p>
-            A physics‑based simulator built in Webots was extended with realistic camera noise and a custom ToF sensor model. Two acquisition modes—free exploration and “photo‑studio” staging—generated over 10 k multi‑modal frames spanning six indoor object classes. Four fusion topologies inject depth at different backbone layers and are contrasted with a width‑reduced non‑fusion baseline optimised for the GAP8 PULP processor on the Crazyflie AI‑deck. Training is orchestrated in PyTorch with extensive augmentation and hyper‑parameter search logged via Weights&nbsp;&amp;&nbsp;Biases.
+            A physics‑based simulator built in Webots was extended with realistic camera noise and a custom ToF sensor model. Two acquisition modes, free exploration and “photo‑studio” staging, generated over 10 k multi‑modal frames spanning six indoor object classes. Four fusion topologies inject depth at different backbone layers and are contrasted with a width‑reduced non‑fusion baseline optimised for the GAP8 PULP processor on the Crazyflie AI‑deck. Training is orchestrated in PyTorch with extensive augmentation and hyper‑parameter search logged via Weights&nbsp;&amp;&nbsp;Biases.
           </p>
         </div>
         <div class="project-image">
@@ -81,7 +81,7 @@
           <ul>
             <li>Generated a 26 GB synthetic multi‑sensor dataset (≈ 10 k frames, 70 k labelled objects).</li>
             <li>Proposed four CNN fusion schemes and a memory‑efficient non‑fusion baseline (3.1 M parameters, 228 M MACs).</li>
-            <li>Achieved 25.7 % mAP with camera‑only and 23.3 % with best fusion—first benchmark for ToF–camera fusion on Nano‑UAVs.</li>
+            <li>Achieved 25.7 % mAP with camera‑only and 23.3 % with best fusion: first benchmark for ToF–camera fusion on Nano‑UAVs.</li>
             <li>Validated Webots ToF model against hardware across 0.5–3 m (≤ 1 pixel error).</li>
             <li>Demonstrated that fine‑tuning with just 10 % real data raises classification accuracy from 54 % to 81 %.</li>
             <li>Delivered open‑source pipelines for dataset capture, preprocessing, training and on‑device deployment.</li>

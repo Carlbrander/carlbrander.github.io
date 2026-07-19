@@ -11,7 +11,7 @@
   <!--
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css?v=1.1">
+  <link rel="stylesheet" href="./assets/css/style.css?v=1.2">
 
   <!--
     - google font link
@@ -295,13 +295,13 @@
 
             <li class="service-item">
 
-              <a href="#" class="project-link" data-project="assets/project pages/CVPRW 2025.html" id="project-link-cvprw2025">
+              <a href="#" class="project-link" data-project="assets/project pages/Master_Thesis.html" id="project-link-master-thesis-highlight">
                 <div class="service-content-box">
                   <figure class="highlight-img">
-                    <img src="./assets/images/thumbnails/CVPRW25_Paper.jpg" alt="CVPRW Research Project" loading="lazy">
+                    <img src="./assets/images/Master_Thesis Project/main figure.jpg" alt="Master's Thesis Research Project" loading="lazy">
                   </figure>
                   
-                  <h4 class="h4 service-item-title">Egocentric Event Vision OCR at CVPRW25</h4>
+                  <h4 class="h4 service-item-title">Augmenting VLAs with Spatial Co-Training Robot Data</h4>
                 </div>
               </a>
 
@@ -431,7 +431,7 @@
 
               <h4 class="h4 timeline-item-title">Master's in Robotics, Systems and Control <br>ETH Zurich</h4>
 
-              <span>Sept. 2023 — March 2026</span>
+              <span>Sept. 2023 - March 2026</span>
 
               <p class="timeline-text">
                 Grade: 5.9/6, passed with distinction<br> <br>
@@ -451,7 +451,7 @@
 
               <h4 class="h4 timeline-item-title">Bachelor's in Mechanical Engineering <br>ETH Zurich</h4>
 
-              <span>Sept. 2019 — Aug. 2023</span>
+              <span>Sept. 2019 - Aug. 2023</span>
 
               <p class="timeline-text">
                 Grade: 5.6/6, top 3% of the Graduate Class<br> <br>
@@ -487,7 +487,7 @@
 
               <h4 class="h4 timeline-item-title">Applied Scientist 2<br> Microsoft Spatial AI Lab</h4>
 
-              <span>April 2026 —</span>
+              <span>April 2026 - Present</span>
 
               <p class="timeline-text">
                 • Building a first-principled, modular robot learning monorepo from the ground up for world model and VLA robot manipulation research
@@ -502,7 +502,7 @@
 
               <h4 class="h4 timeline-item-title">Thesis Student<br> Microsoft Spatial AI Lab</h4>
 
-              <span>July 2025 — March 2026</span>
+              <span>July 2025 - March 2026</span>
 
               <p class="timeline-text">
                 • Thesis Topic: Augmenting VLAs with Spatial Co-Training Robot Data<br>
@@ -517,7 +517,7 @@
 
               <h4 class="h4 timeline-item-title">Digital Technology Consulting Intern <br>McKinsey & Company</h4>
 
-              <span>April 2025 — June 2025</span>
+              <span>April 2025 - June 2025</span>
 
               <p class="timeline-text">
                 • Led and took full ownership over an end-to-end agile transformation for a 400-person technology division at one of
@@ -533,7 +533,7 @@
 
               <h4 class="h4 timeline-item-title">Technical Program Management Intern <br>Tesla</h4>
 
-              <span>Sept. 2023 — May 2024</span>
+              <span>Sept. 2023 - May 2024</span>
 
               <p class="timeline-text">
                 • Took ownership of six low-voltage controller programs from scope definition and design to validation,
@@ -551,7 +551,7 @@
 
               <h4 class="h4 timeline-item-title">Project Lead <br> Swissloop</h4>
 
-              <span>Sept. 2022 — Aug. 2023</span>
+              <span>Sept. 2022 - Aug. 2023</span>
 
               <p class="timeline-text">
                 • Led a multidisciplinary student project at ETH Zurich consisting of 38 students (12 working full-time), building a fully
@@ -566,7 +566,7 @@
 
               <h4 class="h4 timeline-item-title">Focus Coach <br> ETH Zurich</h4>
 
-              <span>Sept. 2022 — July 2023</span>
+              <span>Sept. 2022 - July 2023</span>
 
               <p class="timeline-text">
                 • Coaching and grading eight focus students through their project year while setting them up for success.
@@ -578,7 +578,7 @@
 
               <h4 class="h4 timeline-item-title">Electrical Integration Engineer <br> Swissloop</h4>
 
-              <span>Sept. 2021 — Aug. 2022</span>
+              <span>Sept. 2021 - Aug. 2022</span>
 
               <p class="timeline-text">
                 • Working in a team of 12 full-time engineers developing a topology-optimized 3D-printed heatsink, compact subsystem
@@ -887,6 +887,26 @@
 
             
 
+            <!-- Master's Thesis Research Project -->
+            <li class="project-item active" data-filter-item data-category="research">
+              <a href="#" class="project-link" data-project="assets/project pages/Master_Thesis.html" id="project-link-master-thesis">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/Master_Thesis Project/main figure.jpg" alt="Master's Thesis Research Project" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Augmenting VLAs with Spatial Co-Training Robot Data</h3>
+
+                
+                <p class="project-category">Research – 2026</p>
+
+              </a>
+            </li>
+
             <!-- CVPRW 2025 Research Project -->
             <li class="project-item active" data-filter-item data-category="research">
               <a href="#" class="project-link" data-project="assets/project pages/CVPRW 2025.html">
@@ -1139,6 +1159,18 @@
     document.getElementById('project-link-cvprw2025')?.addEventListener('click', function() {
       if (window.goatcounter) {
         goatcounter.count({ path: '/project/CVPRW-2025' });
+      }
+    });
+
+    // GoatCounter event tracking for Master's Thesis project modal open
+    document.getElementById('project-link-master-thesis-highlight')?.addEventListener('click', function() {
+      if (window.goatcounter) {
+        goatcounter.count({ path: '/project/Master-Thesis' });
+      }
+    });
+    document.getElementById('project-link-master-thesis')?.addEventListener('click', function() {
+      if (window.goatcounter) {
+        goatcounter.count({ path: '/project/Master-Thesis' });
       }
     });
 

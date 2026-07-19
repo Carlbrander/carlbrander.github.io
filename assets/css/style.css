@@ -2386,6 +2386,31 @@ main {
 
 .form-title { margin-bottom: 20px; }
 
+.contact-intro {
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  white-space: nowrap;
+}
+
+.contact-intro a {
+  display: inline;
+  color: var(--orange-yellow-crayola);
+  font-weight: var(--fw-500);
+  text-decoration: none;
+  transition: var(--transition-1);
+}
+
+.contact-intro a:hover,
+.contact-intro a:focus-visible {
+  text-decoration: underline;
+}
+
+.light-theme .contact-intro { color: #444; }
+
+.dark-theme .contact-intro { color: var(--light-gray); }
+
 .input-wrapper {
   display: grid;
   grid-template-columns: 1fr;
