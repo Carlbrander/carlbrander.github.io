@@ -84,7 +84,15 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/portrait_carl_light.jpg" alt="Carl Brander" width="250" id="portrait-img" data-light="./assets/images/portrait_carl_light.jpg" data-dark="./assets/images/portrait_carl_dark.jpg">
+          <img alt="Carl Brander" width="250" id="portrait-img" data-light="./assets/images/portrait_carl_light.jpg" data-dark="./assets/images/portrait_carl_dark.jpg">
+          <script>
+            (function() {
+              var img = document.getElementById('portrait-img');
+              img.src = document.documentElement.classList.contains('light-theme')
+                ? img.getAttribute('data-light')
+                : img.getAttribute('data-dark');
+            })();
+          </script>
         </figure>
 
         <div class="info-content">
@@ -228,10 +236,12 @@
 
         <section class="about-text">
           <p>
-            I'm a recent robotics master student graduate from ETH Zurich. <br>
+            I'm an applied scientist working on robot learning for manipulation 
+            at the Microsoft Spatial AI Lab in Zurich, Switzerland.
+            I recently graduated with a master's degree in robotics from ETH Zurich. <br>
             Throughout my studies I spent time at Tesla, Microsoft and McKinsey & Company. 
-            I also led a 38-person engineering student project for a full year. 
-            I'm passionate about deep tech, especially AI, computer vision and robot learning. 
+            I also led a 38-person engineering student project (Swissloop) for a full year. 
+            I'm passionate about deep tech and AI, especially robot learning. 
             While I'm a tech enthusiast, I also enjoy managing and coordinating
             fast-paced projects. <br>
             <br>
@@ -256,18 +266,6 @@
           <h3 class="h3 service-title">Latest Highlights</h3>
 
           <ul class="service-list">
-
-            <li class="service-item">
-              <a href="#" class="project-link" data-project="assets/project pages/Workplace_Display.html" id="project-link-workplace-display-highlight">
-                <div class="service-content-box">
-                  <figure class="highlight-img">
-                    <img src="./assets/images/thumbnails/Workplace_Display.jpg" alt="Circular Workplace Display Project" loading="lazy">
-                  </figure>
-
-                  <h4 class="h4 service-item-title">Circular Desk Display for the Workplace</h4>
-                </div>
-              </a>
-            </li>
 
             <li class="service-item">
               <a href="#" class="project-link" data-project="assets/project pages/Swissloop Betrand Piccard.html" id="project-link-swissloop-bertrand-highlight">
@@ -438,12 +436,12 @@
               <p class="timeline-text">
                 Grade: 5.9/6, passed with distinction<br> <br>
 
-                • Master Thesis: Augmenting VLAs with Spatial Co-Training Robot Data<br>
+                • Master Thesis: "Augmenting VLAs with Spatial Co-Training Robot Data" at the Microsoft Spatial AI Lab<br>
                 • CVPR25 Workshop Publication: “Reading in the Dark with Foveated Event Vision”<br>
                 • Semester Thesis: “Text Reading with Event Cameras” at the Robotics and Perception Group with META Reality Labs<br>
                 • Multiple Hackathons: Nvidia Simulation Hackathon, EF Builders Retreat, HackNation Hackathon<br>
                 • Teaching Assistant for “Robot Learning: From Fundamentals to Foundations” led by Oier Mees<br>
-                • Courses in AI, Computer Vision, Deep Learning, Autonomous Robots & Driving, Perception, AR & VR, Big Data<br>
+                • Courses in AI, Computer Vision, Deep Learning, Autonomous Robots & Driving, Perception<br>
 
               </p>
 
@@ -492,7 +490,10 @@
               <span>April 2026 —</span>
 
               <p class="timeline-text">
-                • Building a robot learning monorepo for world model and VLA robot manipulation research from scratch
+                • Building a first-principled, modular robot learning monorepo from the ground up for world model and VLA robot manipulation research
+                • Co-Supervising, Grading, Mentoring and Hiring up to 7 master and semester thesis students at a time
+                • Building agentic robot learning policies for executive-level demonstrations and research publications
+                • Co-Authoring research papers on robot learning and VLA advancements  
               </p>
 
             </li>
@@ -599,29 +600,41 @@
             <!-- Technical Skills -->
             <div class="skills-category">
               <h4 class="h4 category-title">Technical</h4>
+
+              <div class="skills-subcategory">
+                <h5 class="h5 subcategory-title">Robot Learning</h5>
+                <div class="skills-tags">
+                  <span class="skill-tag">VLAs</span>
+                  <span class="skill-tag">VLA eCoT Reasoning</span>
+                  <span class="skill-tag">Diffusion and Flow Matching Policies</span>
+                  <span class="skill-tag">Spatial Co-Training</span>
+                  <span class="skill-tag">Agentic Policy Orchestration</span>
+                  <span class="skill-tag">High Performance Dataloading</span>
+                  <span class="skill-tag">Video Action Models</span>
+                  <span class="skill-tag">JEPAs</span>
+                </div>
+              </div>
               
               <div class="skills-subcategory">
                 <h5 class="h5 subcategory-title">Programming</h5>
                 <div class="skills-tags">
                   <span class="skill-tag">Python</span>
-                  <span class="skill-tag">Pytorch</span>
-                  <span class="skill-tag">ROS2</span>
+                  <span class="skill-tag">Agentic Coding</span>
+                  <span class="skill-tag">PyTorch</span>
                   <span class="skill-tag">C++</span>
                   <span class="skill-tag">LaTeX</span>
-                  <span class="skill-tag">C</span>
-                  <span class="skill-tag">MATLAB</span>
-                  <span class="skill-tag">SQL/noSQL</span>
                 </div>
               </div>
 
               <div class="skills-subcategory">
                 <h5 class="h5 subcategory-title">Simulation & Design</h5>
                 <div class="skills-tags">
+                  <span class="skill-tag">MuJoCo</span>
+                  <span class="skill-tag">IsaacLab</span>
                   <span class="skill-tag">SiemensNX</span>
                   <span class="skill-tag">Enovia</span>
                   <span class="skill-tag">FloEFD</span>
-                  <span class="skill-tag">Webots</span>
-                  <span class="skill-tag">IsaacLab</span>
+
                 </div>
               </div>
 
@@ -631,7 +644,7 @@
                   <span class="skill-tag">Docker</span>
                   <span class="skill-tag">Linux</span>
                   <span class="skill-tag">Proxmox</span>
-                  <span class="skill-tag">Unity</span>
+                  <span class="skill-tag">ROS2</span>
                   <span class="skill-tag">Git</span>
 
 
@@ -719,11 +732,11 @@
 
               <div class="title-wrapper">
                 <h5 class="h5">French</h5>
-                <data value="45">45%</data>
+                <data value="40">40%</data>
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 45%;"></div>
+                <div class="skill-progress-fill" style="width: 40%;"></div>
               </div>
 
             </li>
@@ -1057,19 +1070,13 @@
           <h2 class="h2 article-title">Contact</h2>
         </header>
 
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              id="map-iframe"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=8.5,47.35,8.6,47.4&layer=mapnik&marker=47.3769,8.5417"
-              width="400" height="300" loading="lazy" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-            </iframe>
-          </figure>
-        </section>
-
         <section class="contact-form">
 
           <h3 class="h3 form-title">Contact Form</h3>
+
+          <p class="contact-intro">
+            Send me a message on <a href="https://linkedin.com/in/carl-brander/" target="_blank">LinkedIn</a> or via this form
+          </p>
 
           <form action="https://formspree.io/f/mzzglnyn" method="POST" class="form" data-form>
 
